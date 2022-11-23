@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller
     public function index()
     {
         $data['title'] = 'Dashboard';
-        $data['data_transaksi'] = $this->m_data_transaksi->get_data;
+        // $data['data_transaksi'] = $this->m_data_transaksi->get_data;
 
 
         $this->load->view('templates/header', $data);

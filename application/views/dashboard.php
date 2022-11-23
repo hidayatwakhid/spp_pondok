@@ -3,96 +3,93 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        TOTAL PEMASUKAN</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-
-                                        <tr>
-                                            <td>300.000</td>
-
-                                        </tr>
-
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <p>Pemasukan</p>
-                            <div>
-                                <tr>
-                                    <td>300.000</td>
+                            <h4>Rp.300.000</h4>
 
-                                </tr>
-                            </div>
+                            <p>Pemasukan SPP</p>
                         </div>
                         <div class="icon">
-                            <!-- <i class="ion ion-bag"></i> -->
+                            <i class="fas fa-dollar-sign"></i>
                         </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
                     </div>
                 </div>
-                <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h4>Rp.300.000</h4>
+
+                            <p>Pemasukan Non SPP</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h4>Rp.300.000</h4>
 
                             <p>Pengeluaran</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h4>Rp.300.000</h4>
 
-                            <p>User Registrations</p>
+                            <p>Saldo</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
-
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
             </div>
             <!-- /.row -->
             <!-- Main row -->
+        </div>
+        <br>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="col-sm-8 col-md-6">
+                            <div class="card">
+                                <div class="card-header">Doughnut chart</div>
+                                <div class="card-body" style="height: 420px">
+                                    <div class="chartjs-size-monitor"
+                                        style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                        <div class="chartjs-size-monitor-expand"
+                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                            <div
+                                                style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                                            </div>
+                                        </div>
+                                        <div class="chartjs-size-monitor-shrink"
+                                            style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                            <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                        </div>
+                                    </div> <canvas id="chart-line" width="299" height="200"
+                                        class="chartjs-render-monitor"
+                                        style="display: block; width: 299px; height: 200px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
