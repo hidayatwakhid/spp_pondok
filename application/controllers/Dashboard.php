@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller
     {
         $data['title'] = 'Dashboard';
         // $data['data_transaksi'] = $this->m_data_transaksi->get_data;
+        //$data['total_pemasukan'] = $this->m_data_transaksi->total_pemasukan();
 
 
         $this->load->view('templates/header', $data);
