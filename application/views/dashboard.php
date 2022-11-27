@@ -23,9 +23,9 @@
                                             <div style="position:absolute;width:200%;height:200%;left:0; top:0">
                                             </div>
                                         </div>
-                                    </div> <canvas id="chart-line" width="299" height="190"
+                                    </div> <canvas id="chart-line" width="370" height="250"
                                         class="chartjs-render-monitor"
-                                        style="display: block; width: 299px; height: 200px;"></canvas>
+                                        style="min-height: 350px; height: 200px; max-height: 100px; max-width: 100%; display: block; width: 300px;"></canvas>
                                 </div>
                             </div>
                         </div>
