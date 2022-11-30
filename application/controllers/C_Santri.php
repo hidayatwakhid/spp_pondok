@@ -82,7 +82,12 @@ class C_Santri extends CI_Controller
 
             );
 
-            $this->m_santri->insert_data($data, 'tb_data_santri');
+            $insert = $this->m_santri->insert_data($data, 'tb_data_santri');
+            $tes = $this->m_santri->getMaxId();
+            $maxId = $tes->id;
+
+            $insert_tb_transaksi = $this->m_santri->insert_data_transaksi($maxId);
+            
             $this->session->set_flashdata('pesan', '<div class="alert alert-warning alert-dismissible fade show" role="alert">
             Data Berhasil ditambahkan.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

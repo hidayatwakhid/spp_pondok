@@ -48,6 +48,23 @@ class M_santri extends CI_Model
         return $this->db->get_where('tb_data_santri', ['id' => $id])->row();
     }
 
+    public function getMaxId()
+    {
+        $this->db->select_max('id');
+        return $this->db->get('tb_data_santri')->row();
+    }
+    public function insert_data_transaksi($idSantri)
+    {
+        $id_tagihan = $this->db->get('tb_data_tagihan')->result();
+        foreach ($id_tagihan as $key => $value) {
+            $data = [
+                'id_data_santri' => $idSantri,
+                'id_data_tagihan' => $value->id,
+            ];
+            $this->db->insert('tb_data_transaksi', $data);
+        }
+    }
+
     /* public function kam()
     {
 
