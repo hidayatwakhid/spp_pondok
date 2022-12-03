@@ -31,11 +31,11 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg"></p>
-                <a href="<?= base_url('login') ?>" type="button"
+                <a href="<?= base_url('c_login') ?>" type="button"
                     class="btn btn-block bg-gradient-warning btn-lg">ADMIN</a>
-                <a href="<?= base_url('login_santri') ?>" type="button"
+                <a href="<?= base_url('c_login_santri') ?>" type="button"
                     class="btn btn-block bg-gradient-success btn-lg">SANTRI</a>
-                <a href="<?= base_url('login_tamu') ?>" type="button"
+                <a href="<?= base_url('c_login_tamu') ?>" type="button"
                     class="btn btn-block bg-gradient-info btn-lg">TAMU</a>
                 <div class="social-auth-links text-center mb-3">
                 </div>
