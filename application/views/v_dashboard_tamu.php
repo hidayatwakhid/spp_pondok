@@ -19,7 +19,7 @@
                     <td><?= $san->nama_kls ?></td>
                     <td><?= $san->alamat ?></td>
                     <td>
-                        <a type="button" class="btn btn-sm btn-info" title="Input Transaksi"
+                        <a type="button" class="btn btn-sm btn-info" title=""
                             href="<?= base_url('c_input_transaksi/input_transaksi/') ?><?= $san->id ?>">Lihat</a>
                     </td>
                 </tr>

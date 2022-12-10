@@ -21,8 +21,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page"
-    style="background-image:url( <?= base_url('assets/template/foto/bg-image.jpg') ?> );">
+<body class="hold-transition login-page" style="background-repeat: no-repeat;
+            background-size: cover; background-image:url( <?= base_url('assets/template/foto/login3.jpg') ?> );">
     <div class="login-box">
         <div class="login-logo">
             <b>Masuk Sebagai</b>

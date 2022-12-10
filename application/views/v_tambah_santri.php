@@ -21,14 +21,18 @@
             <legend class="col-form-label col-sm-2 pt-0">Jenis Kelamin</legend>
             <div class="col-sm-10">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="jenis_kelamin" name="jenis_kelamin" value="Laki-laki" <?php if (set_value('jenis_kelamin') == "Laki-laki") : echo "checked";
+                    <input class="form-check-input" type="radio" id="jenis_kelamin" name="jenis_kelamin"
+                        value="Laki-laki"
+                        <?php if (set_value('jenis_kelamin') == "Laki-laki") : echo "checked";
                                                                                                                             endif; ?>>
                     <label class="form-check-label" for="jenis_kelamin">
                         Laki-laki
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" id="jenis_kelamin2" name="jenis_kelamin" value="Perempuan" <?php if (set_value('jenis_kelamin') == "Perempuan") : echo "checked";
+                    <input class="form-check-input" type="radio" id="jenis_kelamin2" name="jenis_kelamin"
+                        value="Perempuan"
+                        <?php if (set_value('jenis_kelamin') == "Perempuan") : echo "checked";
                                                                                                                             endif; ?>>
                     <label class="form-check-label" for="jenis_kelamin2">
                         Perempuan
@@ -37,6 +41,14 @@
             </div>
         </div>
     </fieldset>
+    <!-- <div class="form-group">
+        <label for="inputStatus">Jenis Kelamin</label>
+        <select class="form-control custom-select" values="<?php echo $san->jenis_kelamin ?>">
+            <option selected="" disabled="">Select one</option>
+            <option selected="">Laki - laki</option>
+            <option>Perempuan</option>
+        </select>
+    </div> -->
     <!-- <div class="form-group">
         <label for="">Jenis Kelamin</label>
         <select class="form-control" name="jenis_kelamin" values="<?php echo $san->jenis_kelamin ?>">

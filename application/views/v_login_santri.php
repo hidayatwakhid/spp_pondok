@@ -1,4 +1,5 @@
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-repeat: no-repeat;
+            background-size: cover; background-image:url( <?= base_url('assets/template/foto/login3.jpg') ?> );">
     <div class="login-box">
         <div class="login-logo">
             <b>Login Santri</b>
