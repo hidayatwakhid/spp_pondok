@@ -1,5 +1,31 @@
 <body class="layout-top-nav" style="height: auto;">
     <div class="wrapper">
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-green">
+            <div class="container">
+                <a href="http://localhost/inay/dashboard_tamu" class="navbar-brand">
+                    <img src="http://localhost/inay/assets/foto/logo_pondok.png" alt="AdminLTE Logo"
+                        class="brand-image img-circle elevation-3" style="opacity: .8">
+                </a><a href="#" class="nav-link" style=" color: white; ">SISTEM PEMBAYARAN SPP </a>
+                <button class="navbar-toggler order-1" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item"></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a type="button" href="http://localhost/inay/login_tamu/logout"
+                                class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container">
@@ -69,8 +95,15 @@
                 <!-- /.content -->
             </div>
         </div>
+        <div>
+            <footer class="main-footer">
+                <strong>Copyright &copy; 2022-2023 </strong> || Pondok Pesantren Inayatullah.
+                <div class="float-right d-none d-sm-block">
+                    <b>Version</b> 3.0.5
+                </div>
+            </footer>
+        </div>
     </div>
-
     <!-- ./wrapper -->
 
     <!-- jQuery -->

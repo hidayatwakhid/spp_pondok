@@ -14,7 +14,6 @@
                 <li class="nav-item">
                     <a type="button" href="#" class="btn btn-block btn-danger btn-sm"><b>LOGOUT</b></a>
                 </li>
-
             </ul>
         </nav>
         <!-- /.navbar -->
