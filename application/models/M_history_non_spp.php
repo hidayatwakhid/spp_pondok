@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_jurnal extends CI_Model
+class M_history_non_spp extends CI_Model
 {
 
     public function get_data($table)
@@ -17,7 +17,7 @@ class M_jurnal extends CI_Model
 
     public function update_data($data, $table)
     {
-        $this->db->where('id_jurnal_umum', $data['id_jurnal_umum']);
+        $this->db->where('id_history_non_spp', $data['id_history_non_spp']);
         $this->db->update($table, $data);
     }
 
@@ -28,4 +28,4 @@ class M_jurnal extends CI_Model
     }
 }
     
-    /* End of file M_jurnal.php */
+    /* End of file M_history_non_spp.php */

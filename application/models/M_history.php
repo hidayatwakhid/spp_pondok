@@ -7,7 +7,11 @@ class M_history extends CI_Model
 
     public function get_data($table)
     {
-        return $this->db->get($table);
+        $this->db->order_by('tgl_byr', 'desc');
+        $this->db->join('tb_data_tagihan', 'tb_data_transaksi.id_data_tagihan = tb_data_tagihan.id');
+        $this->db->join('tb_data_santri', 'tb_data_transaksi.id_data_santri = tb_data_santri.id');
+        $this->db->where('tgl_byr !=', '');
+        return $this->db->get_where($table);
     }
 
     public function insert_data($data, $table)

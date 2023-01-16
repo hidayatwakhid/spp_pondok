@@ -8,6 +8,11 @@ class C_Santri extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+         if (isset($_SESSION['username'])) {
+            
+        }else {
+            redirect('','refresh');
+        }
 
         $this->load->model('m_santri');
     }
@@ -16,9 +21,6 @@ class C_Santri extends CI_Controller
     public function index()
     {
         $data['title'] = 'Santri';
-        //$this->load->model('m_santri');
-        //$data = $this->m_santri->kam()->result();
-        //var_dump($data);
         $data['kamar'] = $this->m_santri->get_kamr()->result();
         $data['kelas'] = $this->m_santri->get_klas()->result();
         $data['santri'] = $this->m_santri->get_data('tb_data_santri')->result();
@@ -52,6 +54,7 @@ class C_Santri extends CI_Controller
             'title' => 'Detail Santri ',
             'isi' => 'data_santri/detail',
             'data' => $this->m_santri->get_data_by_id($id),
+            'id' => $id,
         ];
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -61,25 +64,41 @@ class C_Santri extends CI_Controller
 
     public function tambah_aksi()
     {
-        $this->_rules();
+        $random = rand();
+        $tahun = date("Y");
+        $tahunnya = substr($tahun, -2);
+        $jk = $this->input->post('jenis_kelamin');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->tambah();
+        // hitung jumlah santri 
+        $urut = $this->db->get('tb_data_santri')->num_rows();
+        // tambah satu 
+        $urutan = $urut + 1;
+
+        $format = '%1$04d ';
+        $nis3 = sprintf($format, $urutan);
+
+
+
+
+        if ($jk == 'Perempuan') {
+            $jenis_kelamin = '02';
         } else {
+            $jenis_kelamin = '01';
+        }
+        $nisnya = $tahunnya . $jenis_kelamin . $nis3;
+
             $data = array(
                 'nama' => $this->input->post('nama'),
-                'nis' => $this->input->post('nis'),
+                'nis' => $nisnya,
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'alamat' => $this->input->post('alamat'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'id_kamar' => $this->input->post('id_kamar'),
                 'id_kelas' => $this->input->post('id_kelas'),
                 'no_hp' => $this->input->post('no_hp'),
-                'password' => $this->input->post('password'),
+                'password' => substr($random, 0, 5),
                 'tgl_masuk' => $this->input->post('tgl_masuk'),
-                'status' => $this->input->post('status'),
-                'foto' => $this->input->post('foto'),
-
+                'status' => $this->input->post('status')
             );
 
             $insert = $this->m_santri->insert_data($data, 'tb_data_santri');
@@ -94,31 +113,24 @@ class C_Santri extends CI_Controller
             <span aria-hidden="true">&times;</span>
             </button></div>');
             redirect('c_santri');
-        }
+       
     }
-
+    
     public function edit($id)
     {
-        $this->_rules();
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->index();
-        } else {
+       
             $data = array(
                 'id' => $id,
                 'nama' => $this->input->post('nama'),
-                'nis' => $this->input->post('nis'),
                 'tgl_lahir' => $this->input->post('tgl_lahir'),
                 'alamat' => $this->input->post('alamat'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
                 'id_kamar' => $this->input->post('id_kamar'),
                 'id_kelas' => $this->input->post('id_kelas'),
                 'no_hp' => $this->input->post('no_hp'),
-                'password' => $this->input->post('password'),
                 'tgl_masuk' => $this->input->post('tgl_masuk'),
                 'status' => $this->input->post('status'),
-                'foto' => $this->input->post('foto'),
-                'kamar' => $this->m_santri->get_kamr()->result(),
+                
             );
 
             $this->m_santri->update_data($data, 'tb_data_santri');
@@ -127,8 +139,8 @@ class C_Santri extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button></div>');
-            redirect('c_santri');
-        }
+            redirect('c_santri/');
+      
     }
 
     public function _rules()
@@ -136,9 +148,7 @@ class C_Santri extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama Santri', 'required', array(
             'required' => '%s harus di isi !!'
         ));
-        $this->form_validation->set_rules('nis', 'NIS', 'required', array(
-            'required' => '%s harus di isi !!'
-        ));
+       
         $this->form_validation->set_rules('tgl_lahir', 'Tanggal Lahir', 'required', array(
             'required' => '%s harus di isi !!'
         ));
@@ -157,18 +167,15 @@ class C_Santri extends CI_Controller
         $this->form_validation->set_rules('no_hp', 'No Hp', 'required', array(
             'required' => '%s harus di isi !!'
         ));
-        $this->form_validation->set_rules('password', 'Password', 'required', array(
-            'required' => '%s harus di isi !!'
-        ));
         $this->form_validation->set_rules('tgl_masuk', 'Tanggal Masuk', 'required', array(
             'required' => '%s harus di isi !!'
         ));
         $this->form_validation->set_rules('status', 'Status', 'required', array(
             'required' => '%s harus di isi !!'
         ));
-        $this->form_validation->set_rules('foto', 'Foto', 'required', array(
-            'required' => '%s harus di isi !!'
-        ));
+        // $this->form_validation->set_rules('foto', 'Foto', 'required', array(
+        //     'required' => '%s harus di isi !!'
+        // ));
     }
 
     public function delete($id)
@@ -182,6 +189,11 @@ class C_Santri extends CI_Controller
         <span aria-hidden="true">&times;</span>
         </button></div>');
         redirect('c_santri');
+    }
+
+    public function kirim($id)
+    {
+        $this->m_santri->kirim($id);
     }
 }
 

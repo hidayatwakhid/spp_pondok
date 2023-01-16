@@ -11,44 +11,23 @@ class M_dashboard extends CI_Model
         return $this->db->get($table)->result_array();
     }
 
-    /*  public function pemasukan()
-    {
-        $this->db->select_sum('pemasukan');
-        return $this->db->get('tb_jurnal')->row();
-    }
-
-
     public function jumlah_pemasukan()
     {
         $this->db->select_sum('pemasukan');
-        $this->db->get('tb_jurnal');
-    } */
-
-    // public function get_sum()
-    // {
-    //     $sql = "select sum(pemasukan) as pemasukan from tb_jurnal";
-    //     $result = $this->db->query($sql);
-    //     return $result->row()->pemasukan;
-    // }
-
-    // public function insert_data($data, $table)
-    // {
-    //     $this->db->insert($table, $data);
-    // }
-
-
-
-    /* public function update_data($data, $table)
-    {
-        $this->db->where('id_jurnal_umum', $data['id_jurnal_umum']);
-        $this->db->update($table, $data);
+        return $this->db->get('tb_history_non_spp')->row();
     }
 
-    public function delete($where, $table)
+    public function jumlah_pengeluaran()
     {
-        $this->db->where($where);
-        $this->db->delete($table);
-    } */
+        $this->db->select_sum('pengeluaran');
+        return $this->db->get('tb_history_non_spp')->row();
+    }
+
+    public function pemasukan_spp()
+    {
+        $this->db->select_sum('jumlah_byr');
+        return $this->db->get('tb_data_transaksi')->row();
+    }
 }
     
     /* End of file M_dahboard.php */

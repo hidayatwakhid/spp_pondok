@@ -8,13 +8,18 @@ class C_History extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+         if (isset($_SESSION['username'])) {
+            
+        }else {
+            redirect('','refresh');
+        }
 
         $this->load->model('m_history');
     }
 
     public function index()
     {
-        $data['title'] = 'History';
+        $data['title'] = 'History Transaksi SPP';
         $data['history'] = $this->m_history->get_data('tb_data_transaksi')->result();
 
         $this->load->view('templates/header', $data);

@@ -73,6 +73,29 @@ class M_santri extends CI_Model
         $this->db->join('tb_kmr', 'tb_data_santri.id_kamar = tb_kmr.id_kmr', 'left');
         return $this->db->get();
     } */
+
+    public function kirim($id)
+    {
+        $data = $this->get_data_by_id($id);
+        $no_hp = $data->no_hp;
+        $nis = $data->nis;
+        $password = $data->password;
+        // echo $no_hp;
+        if (substr(trim($no_hp), 0, 1) == '0') {
+            $hp = '62' . substr(trim($no_hp), 1);
+        } else {
+            $hp = $no_hp;
+        }
+        // echo '<br>';
+        // echo $hp;
+        // die();
+        $nama = $data->nama;
+        $enter = '%0A';
+        $text = 'Assalamualaikum kang ' . $nama . '' . $enter . $enter . 'Kami dari bendahara ingin memberitahukan bahwa akan diadakan *Sistem Pembayaran SPP Berbasis Website*' . $enter . $enter . 'Maka dari itu silakan kang ' . $nama . ' bisa login ke link berikut ' . base_url() . ' pada login via santri kemudian memasukkan :' . $enter . 'NIS : ' . $nis . $enter . 'Password : ' . $password . $enter . $enter . 'Mohon jaga baik-baik NIS dan Password tersebut.' . $enter . $enter . 'Apabila orantua atau wali ingin mengetahui history pembayaran spp bisa menggunakan login via Tamu.' . $enter . $enter . $enter . 'Terimakasih' . $enter . 'Ttd' . $enter . $enter . '*Bendahara*';
+
+        $url = prep_url('https://api.whatsapp.com/send?phone=' . $hp . '&text=' . $text);
+        redirect($url);
+    }
 }
     
     /* End of file M_santri.php */

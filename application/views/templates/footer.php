@@ -38,43 +38,43 @@
 <script src="<?= base_url('assets/template') ?>/dist/js/demo.js"></script>
 <!-- page script -->
 <script>
-    $(function() {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
+$(function() {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
     });
+});
 </script>
 <!-- ChartJS -->
 <script src="<?= base_url('assets/template') ?>/plugins/chart.js/Chart.min.js"></script>
 <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script> -->
 <script>
-    $(document).ready(function() {
-        var ctx = $("#chart-line");
-        var myLineChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ["Spring", "Summer", "Fall", "Winter"],
-                datasets: [{
-                    data: [1200, 1700, 800, 200],
-                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)",
-                        "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"
-                    ]
-                }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Weather'
-                }
+$(document).ready(function() {
+    var ctx = $("#chart-line");
+    var myLineChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["Spring", "Summer", "Fall", "Winter"],
+            datasets: [{
+                data: [1200, 1700, 800, 200],
+                backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)",
+                    "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"
+                ]
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Weather'
             }
-        });
+        }
     });
+});
 </script>
 </body>

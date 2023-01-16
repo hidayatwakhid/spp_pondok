@@ -1,13 +1,9 @@
 <div class="card">
-    <div class="card-header">
-        <a href="<?= base_url('c_history/tambah') ?>" class="btn btn-primary btn-sm"><i class="fas fa-plus"> Tambah
-                Data</i></a>
-    </div>
     <!-- /.card-header -->
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Nama</th>
                     <th>Tagihan</th>
@@ -16,7 +12,6 @@
                     <th>Keterangan</th>
                     <th>Tanggal Bayar</th>
                     <th>Created By</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,21 +19,20 @@
                 foreach ($history as $his) : ?>
                 <tr class="text-center">
                     <td><?= $no++ ?></td>
-                    <td><?= $his->id_data_santri ?></td>
-                    <td><?= $his->id_data_tagihan ?></td>
+                    <td><?= $his->nama ?></td>
+                    <td><?= $his->nominal ?></td>
                     <td><?= $his->jumlah_byr ?></td>
                     <td><?= $his->sisa ?></td>
-                    <td><?= $his->keterangan ?></td>
+                    <td><?php if ($his->keterangan == '1') {
+                                    echo '<span class="badge badge-success">Lunas</span>';
+                                } elseif ($his->keterangan == '0') {
+                                    echo '<span class="badge badge-warning">Belum Lunas</span>';
+                                } else {
+                                    echo '';
+                                } ?></td>
                     <td><?= $his->tgl_byr ?></td>
                     <td><?= $his->created_by ?></td>
-                    <td>
-                        <button data-toggle="modal" data-target="#edit<?= $his->id_data_transaksi ?>"
-                            class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                        <a href="<?= base_url('c_history/delete/' . $his->id_data_transaksi) ?>"
-                            class="btn btn-danger btn-sm"
-                            onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i
-                                class="fas fa-trash"></i></a>
-                    </td>
+
                 </tr>
                 <?php endforeach ?>
             </tbody>

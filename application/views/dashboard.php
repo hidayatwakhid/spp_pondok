@@ -1,98 +1,166 @@
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        TOTAL PEMASUKAN</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+        <!-- Main content -->
+        <section class="content">
+            <div class="page-content page-container" id="page-content">
+                <div class="">
+                    <div class="">
+                        <!-- Small boxes (Stat box) -->
+                        <div class="row">
+                            <div class="col-3">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h4>Rp. <?= number_format($pemasukan_spp, 2, ',', '.') ?></h4>
 
-                                        <tr>
-                                            <td>300.000</td>
-
-                                        </tr>
-
+                                        <p>Pemasukan SPP</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-dollar-sign"></i>
                                     </div>
                                 </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            </div>
+
+
+                            <div class="col-3">
+                                <!-- small box -->
+                                <div class="small-box bg-info">
+                                    <div class="inner">
+                                        <h4>Rp. <?= number_format($jumlah_pemasukan, 2, ',', '.') ?></h4>
+
+                                        <p>Pemasukan Non SPP</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-3">
+                                <!-- small box -->
+                                <div class="small-box bg-danger ">
+                                    <div class="inner">
+                                        <h4>Rp. <?= number_format($jumlah_pengeluaran, 2, ',', '.') ?></h4>
+
+                                        <p>Pengeluaran</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-3">
+                                <!-- small box -->
+                                <div class="small-box bg-success">
+                                    <div class="inner">
+                                        <h4>Rp.
+                                            <?= number_format($pemasukan_spp + $jumlah_pemasukan - $jumlah_pengeluaran, 2, ',', '.') ?>
+                                        </h4>
+
+                                        <p>Saldo</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <div class="padding">
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    Grafik
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-2">
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mt-4 ml-4 mb-4">
+                                            <canvas id="myChart" style="width: 200px;"></canvas>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <ul class="nav nav-pills flex-column mt-4 mr-4">
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    Pemasukan
+                                                    <span class="float-right text-blue">
+                                                        <?= $jumlah_pemasukan + $pemasukan_spp; ?>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    Pengeluaran
+                                                    <span class="float-right text-danger">
+                                                        <?= $jumlah_pengeluaran; ?>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">
+                                                    Saldo
+                                                    <span class="float-right text-bold">
+                                                        <?= $jumlah_pemasukan + $pemasukan_spp - $jumlah_pengeluaran; ?>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <p>Pemasukan</p>
-                            <div>
-                                <tr>
-                                    <td>300.000</td>
 
-                                </tr>
-                            </div>
-                        </div>
-                        <div class="icon">
-                            <!-- <i class="ion ion-bag"></i> -->
-                        </div>
-                        <!-- <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a> -->
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+        </section>
 
-                            <p>Pengeluaran</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
 
-                            <p>User Registrations</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3>65</h3>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-                            <p>Unique Visitors</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
-            <!-- /.row -->
-            <!-- Main row -->
-        </div>
-    </section>
+        <script>
+const labels = [
+    'Pemasukan',
+    'Pengeluaran',
+];
+
+const data = {
+    labels: [
+        'Pemasukan',
+        'Pengeluaran',
+    ],
+
+    datasets: [{
+        label: 'My First Dataset',
+        data: [
+            <?= $jumlah_pemasukan + $pemasukan_spp; ?>,
+            <?= $jumlah_pengeluaran; ?>
+        ],
+        backgroundColor: [
+            'rgb(54, 162, 235)',
+            'rgb(255, 99, 132)',
+        ],
+        hoverOffset: 4
+    }]
+};
+
+const config = {
+    type: 'doughnut',
+    data: data,
+    options: {}
+};
+        </script>
+
+        <script>
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+);
+        </script>

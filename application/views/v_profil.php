@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col">
                 <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                    <h3>Profil santri</h3>
+                    <h3>Informasi Santri</h3>
                     <h6>Santri dapat melihat dan mengedit data dirinya.</h6>
                 </nav>
             </div>
@@ -13,7 +13,12 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                     <div class="card-body text-center">
-                        <img src="<?= base_url('assets/template/') ?>foto/profil.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                        <img src="<?= base_url('assets/template/') ?>foto/<?php if ($data->foto) {
+                            echo $data->foto; 
+                        }else {
+                            echo "profil.png";
+                        }
+                         ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                         <h5 class="my-3">Santri Inay</h5>
                         <p class="text-muted mb-1"><?= $data->status ?></p>
                     </div>
@@ -111,11 +116,19 @@
                                 <p class="text-muted mb-0"><?= $data->status ?></p>
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <a type="button" class="btn btn-warning" style="margin-right: 5px;"
+                                        href="<?= base_url('c_santri') ?>">Kembali</a>
+                                    <a type="button" class="btn btn-success"
+                                        href="<?= base_url('c_santri/kirim/') ?><?= $id ?>">Kirim WA</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer">
-                <a type="button" class="btn btn-warning" href="<?= base_url('c_santri') ?>">Kembali</a>
             </div>
         </div>
     </div>

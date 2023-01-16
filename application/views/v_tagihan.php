@@ -11,7 +11,7 @@
                     <th>No</th>
                     <th>Tahun</th>
                     <th>Bulan</th>
-                    <th>Nomilan</th>
+                    <th>Nominal</th>
                     <!-- <th>Aksi</th> -->
                 </tr>
             </thead>
